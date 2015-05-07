@@ -4,14 +4,15 @@
   <h3>Basic Information</h3>
   <span><h4>Username:</h4><%= @user.username %></span>
   <span><h4>Email:</h4><%= @user.email %></span>
+  <span><h4>Timezone:</h4><%= @user.timezone %></span>
 </div>
 
 <ul class='nav nav-tabs'>
   <li class="<%= 'active' if params[:tab] == nil %>">
-    <%= link_to "Posts (#{current_user.posts.size})", user_path(current_user.id) %>
+    <%= link_to "Posts (#{@user.posts.size})", user_path(@user) %>
   </li>
   <li class="<%='active' if params[:tab] == 'comments' %>">
-    <%= link_to "Comments (#{current_user.comments.size})", user_path(current_user.id, tab: 'comments') %>
+    <%= link_to "Comments (#{@user.comments.size})", user_path(@user, tab: 'comments') %>
   </li>
 </ul>
 <br>

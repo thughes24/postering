@@ -42,6 +42,9 @@ class ApplicationController < ActionController::Base
   end
 
   def nicetime(timestring)
-    timestring.strftime("%D at %r")
+    if logged_in? && !current_user.timezone.blank?
+      timestring = timestring.in_time_zone(current_user.timezone)
+    end
+    timestring.strftime("%D at %r %Z")
   end
 end
