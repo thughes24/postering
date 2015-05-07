@@ -1,0 +1,8 @@
+<div class='well'>
+  <% post.comments.each do |comment| %>
+    <p>
+      <span style='font-weight:bold;'><%=comment.user.username %>: </span> <%=comment.body %> <span style="font-size:70%;">at <%=nicetime(comment.created_at) %></span> <% if params[:tab] == 'comments'%> On: <span style='font-weight:bold;'><%= comment.post.title %> </span><% end %>
+    </p>
+  <% end %>
+  <%if params[:tab] != 'comments' %><%= link_to "Hide Comments", posts_path %><% end %>
+</div>

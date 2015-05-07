@@ -1,0 +1,18 @@
+<%= render '/layouts/errors', error: @user %>
+<div class="logbox">
+  <div id="centeredbox">
+    <div id="centeredbox-inner">
+      <% if params[:which_form] == nil %>
+      <h1>Post It</h1>
+      <p>post or comment anywhere, anytime</p>
+        <%= link_to "Login", root_path(which_form: "login"), class: 'btn btn-lg btn-info'%>
+        <a class='btn btn-lg btn-warning' href="?which_form=sign_up">Sign Up</a>
+      <% elsif params[:which_form] == 'login' %>
+        <%= render '/layouts/login' %>
+      <% else %>
+        <%= render '/layouts/sign_up' %>
+      <% end %>
+    </div>
+  </div>
+  <%= "#{User.find(session[:user_id]).username}" if session[:user_id] %>
+</div>

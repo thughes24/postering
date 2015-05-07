@@ -1,0 +1,23 @@
+<%= render '/layouts/title', title: @user.username %>
+
+<div class="well">
+  <h3>Basic Information</h3>
+  <span><h4>Username:</h4><%= @user.username %></span>
+  <span><h4>Email:</h4><%= @user.email %></span>
+</div>
+
+<ul class='nav nav-tabs'>
+  <li class="<%= 'active' if params[:tab] == nil %>">
+    <%= link_to "Posts (#{current_user.posts.size})", user_path(current_user.id) %>
+  </li>
+  <li class="<%='active' if params[:tab] == 'comments' %>">
+    <%= link_to "Comments (#{current_user.comments.size})", user_path(current_user.id, tab: 'comments') %>
+  </li>
+</ul>
+<br>
+
+<% if params[:tab] == nil %>
+  <%= render '/posts/posts', posts: @user.posts %>
+<% elsif params[:tab] == "comments" %>
+  <%= render '/posts/comments', post: @user %>
+<% end %>

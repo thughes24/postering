@@ -1,0 +1,4 @@
+<% all_posts = link_to('All Posts', posts_path) %>
+<%= render 'layouts/title', title: "#{all_posts} &raquo; #{@category.name}".html_safe %>
+
+<%= render '/posts/posts', posts: @category.posts %>

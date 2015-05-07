@@ -1,0 +1,24 @@
+<% posts.each do |post| %>
+<div class="well">
+  <h3><%= render '/posts/stars', voted_object: post %></h3>
+  <h3 class='quiet'>Posted In: <%= render post.categories %> </h3>
+  <h1><a name="<%=post.title%>" style='text-decoration:none;'><%=post.title %></a>  <small><span style='font-weight:bold;'> By: </span><%=post.user.username%></small</h1>
+  <br>
+  <div class="well">
+    <p><%=post.contents%></p>
+  </div>
+  <p><span style='font-weight:bold;'>Created on: </span><%=nicetime(post.created_at)%></p>
+    <hr>
+  <% if editable(post) %>
+    <%= link_to "Edit Post", edit_post_path(post) %>
+  <% end %>
+  <hr>
+  <p><span style='font-weight:bold;'>New Comment? </span></p>
+  <%= render '/posts/new_comment', post: post %>
+  <% if params[:postcomments] != "#{post.id}" %>
+  <%= link_to "View all Comments (#{post.comments.size})", posts_path(postcomments: "#{post.id}", anchor: post.title) %>
+  <% elsif params[:postcomments] == "#{post.id}" %>
+  <%= render 'comments', post: post %>
+  <% end %>
+</div>
+  <% end %>

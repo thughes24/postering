@@ -1,0 +1,8 @@
+<div class="well">
+  <%= form_for [post, @comment] do |f| %>
+    <div class='form-group'>
+      <%= f.text_area :body, class: 'form-control' %>
+    </div>
+    <%= f.submit "Comment", class: 'btn btn-info' %>
+  <% end %>
+</div>

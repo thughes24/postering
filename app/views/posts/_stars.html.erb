@@ -1,0 +1,9 @@
+<div class='starbox' id="star_<%=voted_object.id%>" style="float:right;">
+<p><%= link_to votes_path(vote: 'true', post: voted_object, type: 'Post'), method: 'post', remote: true do %>
+  <% if check_if_starred(voted_object)%>
+    <i class='glyphicon glyphicon-certificate' style='color:yellow'></i>
+  <% else %>
+    <i class='glyphicon glyphicon-certificate'></i>
+  <% end %>
+  <% end %><span><%= voted_object.votes.size %></span> Stars</p>
+</div>

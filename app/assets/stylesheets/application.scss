@@ -1,0 +1,55 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+* {padding:0; margin:0;}
+
+.logbox {
+  height:100vh;
+  width:100vw;
+  background-color:#D1D1D1;
+}
+#centeredbox {
+  background-color:black;
+  opacity:0.8;
+  position:relative;
+  border:1px solid black;
+  width:40vw;
+  min-height:400px;
+  max-height:600px;
+  height:60vh;
+  margin:auto;
+  top:20vh;
+  border-radius: 10px;
+}
+#centeredbox-inner {
+  width:40vw;
+  height:60vh;
+  min-height:400px;
+  max-height:600px;
+  background:none;
+  position:relative;
+  opacity:none;
+  text-align:center;
+  top:25%;
+  color:bisque;
+  font-size:200%;
+}
+.nav {
+  margin-top:3px !important;
+  margin-right:3px !important;
+}
+.control-input {
+  color:black;
+}
+
+.starbox {
+  border:3px dotted #B8B8B8;
+  border-radius:3px;
+  padding:5px;
+}
+.glyphicon-certificate:hover {
+  color:yellow;
+}
+.glyphicon-certificate a{
+  color:grey;
+}

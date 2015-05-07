@@ -1,0 +1,11 @@
+<%= render '/layouts/title', title: "New Category" %>
+<%= render '/layouts/errors', error: @category %>
+<div class='well'>
+  <%= form_for @category do |f| %>
+    <div class='form group'>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div><br>
+    <%= f.submit "Create Category", class: 'btn btn-primary' %>
+  <% end %>
+</div>
