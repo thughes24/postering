@@ -14,6 +14,9 @@
   <li class="<%='active' if params[:tab] == 'comments' %>">
     <%= link_to "Comments (#{@user.comments.size})", user_path(@user, tab: 'comments') %>
   </li>
+  <li class="<%='active' if params[:tab] == 'starred' %>">
+    <%= link_to "Starred Posts (#{@user.votes.size})", user_path(@user, tab: 'starred') %>
+  </li>
 </ul>
 <br>
 
@@ -21,4 +24,6 @@
   <%= render '/posts/posts', posts: @user.posts %>
 <% elsif params[:tab] == "comments" %>
   <%= render '/posts/comments', post: @user %>
+<% elsif params[:tab] == "starred" %>
+  <%= render '/posts/posts', posts: @user.votes %>
 <% end %>

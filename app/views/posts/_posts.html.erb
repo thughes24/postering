@@ -1,4 +1,5 @@
 <% posts.each do |post| %>
+<% post = post.voteable if params[:tab] == "starred" %>
 <div class="well">
   <h3><%= render '/posts/stars', voted_object: post %></h3>
   <h3 class='quiet'>Posted In: <%= render post.categories %> </h3>
